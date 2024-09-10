@@ -314,18 +314,7 @@ public:
 
    // shallow copy of data
    CudaTensor(const CudaTensor&) = default;
-<<<<<<< HEAD
-   CudaTensor& operator=(const CudaTensor&) = delete;
-
-
-   template <typename... Ints>
-   __host__ void Allocate(Ints... ext) {
-      IndexBase<T, dim>::SetExtents(ext...);
-      ASSERT_CUDA_SUCCESS(cudaMalloc(&data_, size() * sizeof(T)));
-   }
-=======
    CudaTensor& operator=(const CudaTensor&) = default;
->>>>>>> gpu_new
 
 
    // for example if t is Tensor and ct is CudaTensor, can be used as follows: ct.Allocate(t.extents());

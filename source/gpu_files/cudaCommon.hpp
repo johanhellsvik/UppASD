@@ -1,10 +1,9 @@
 #pragma once
 
 #include <cuda_runtime.h>
-
-#include "cudaMatrix.hpp"
 #include "cudaParallelizationHelper.hpp"
 #include "real_type.h"
+#include "tensor.cuh"
 
 
 // Class wrapper
@@ -16,9 +15,9 @@ public:
       const real* b;
 
    public:
-      AddTo(cudaMatrix<real, 3, 3>& A, const cudaMatrix<real, 3, 3>& B) {
-         a = A;
-         b = B;
+      AddTo(CudaTensor<real, 3>& A, const CudaTensor<real, 3>& B) {
+         a = A.data();
+         b = B.data();
       }
 
       __device__ void each(unsigned int element) {
@@ -36,10 +35,10 @@ public:
       const real* c;
 
    public:
-      Add(cudaMatrix<real, 3, 3>& A, const cudaMatrix<real, 3, 3>& B, const cudaMatrix<real, 3, 3>& C) {
-         a = A;
-         b = B;
-         c = C;
+      Add(CudaTensor<real, 3>& A, const CudaTensor<real, 3>& B, const CudaTensor<real, 3>& C) {
+         a = A.data();
+         b = B.data();
+         c = C.data();
       }
 
       __device__ void each(unsigned int element) {
@@ -54,9 +53,9 @@ public:
       const real* b;
 
    public:
-      Avg(cudaMatrix<real, 3, 3>& A, const cudaMatrix<real, 3, 3>& B) {
-         a = A;
-         b = B;
+      Avg(CudaTensor<real, 3>& A, const CudaTensor<real, 3>& B) {
+         a = A.data();
+         b = B.data();
       }
 
       __device__ void each(unsigned int element) {
@@ -72,10 +71,10 @@ public:
       const real* c;
 
    public:
-      ScalarMult(cudaMatrix<real, 3, 3>& A, const cudaMatrix<real, 3, 3>& B, const cudaMatrix<real, 2>& C) {
-         a = A;
-         b = B;
-         c = C;
+      ScalarMult(CudaTensor<real, 3>& A, const CudaTensor<real, 3>& B, const CudaTensor<real, 2>& C) {
+         a = A.data();
+         b = B.data();
+         c = C.data();
       }
 
       __device__ void each(unsigned int element) {
@@ -90,9 +89,9 @@ public:
       const real* b;
 
    public:
-      Inv(cudaMatrix<real, 2>& A, const cudaMatrix<real, 2>& B) {
-         a = A;
-         b = B;
+      Inv(CudaTensor<real, 2>& A, const CudaTensor<real, 2>& B) {
+         a = A.data();
+         b = B.data();
       }
 
       __device__ void each(unsigned int atom) {

@@ -2,7 +2,7 @@
 // Helper functions that calls the C++ routines //
 //////////////////////////////////////////////////
 
-#include "cudaMdSimulation.hpp"
+#include "cudaSimulation.hpp"
 #include "mdSimulation.hpp"
 
 
@@ -46,22 +46,24 @@ void cmdsim_writematrices_() {
 
 
 // Cuda
-static CudaMdSimulation cudaMdSim;
+static CudaSimulation cudaSim;
 
 
-void cudamdsim_initiateconstants_() {
-   cudaMdSim.initiateConstants();
+void cudasim_initiateconstants_() {
+   cudaSim.initiateConstants();
 }
 
-
-void cudamdsim_initiatematrices_() {
-   cudaMdSim.initiateMatrices();
+void cudasim_initiatematrices_() {
+   cudaSim.initiateMatrices();
 }
 
+void cudasim_cudarunsimulation_(int *whichsim, int *whichphase){
+   cudaSim.cudaRunSimulation(*whichsim, *whichphase);
+};
 
-void cudamdsim_measurementphase_() {
-   cudaMdSim.measurementPhase();
-}
+void cudasim_release_(){
+   cudaSim.release();
+};
 
 
 #ifdef __cplusplus
