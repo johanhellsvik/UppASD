@@ -11,7 +11,6 @@ do
     sed -i "s/NY/$nx/g" inpsd.dat
     sed -i "s/NZ/$nx/g" inpsd.dat
     sed -i "s/MODE/S/g" inpsd.dat
-    sed -i "s/nsteps/mcnsteps/g" inpsd.dat
     sed -i "s/GPU/0/g" inpsd.dat
     ../../../bin/sd.f95.cuda > out.log
     cd ..
@@ -25,8 +24,7 @@ do
     sed -i "s/NY/$nx/g" inpsd.dat
     sed -i "s/NZ/$nx/g" inpsd.dat
     sed -i "s/MODE/S/g" inpsd.dat
-    sed -i "s/nsteps/mcnsteps/g" inpsd.dat
-    sed -i "s/GPU/0/g" inpsd.dat
+    sed -i "s/GPU/1/g" inpsd.dat
     ../../../bin/sd.f95.cuda > out.log
     cd ..
 
@@ -40,7 +38,7 @@ do
     sed -i "s/NZ/$nx/g" inpsd.dat
     sed -i "s/MODE/S/g" inpsd.dat
     sed -i "s/nsteps/mcnsteps/g" inpsd.dat
-    sed -i "s/GPU/1/g" inpsd.dat
+    sed -i "s/GPU/0/g" inpsd.dat
     ../../../bin/sd.f95.cuda > out.log
     cd ..
 
