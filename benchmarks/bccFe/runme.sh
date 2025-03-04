@@ -17,10 +17,10 @@ do
     cd ..
 
     # ASD GPU
-    mkdir ASDCPUN$nx/ 2>/dev/null
+    mkdir ASDGPUN$nx/ 2>/dev/null
     echo "NX: " $nx
-    cp Base/* ASDCPUN$nx/
-    cd ASDCPUN$nx
+    cp Base/* ASDGPUN$nx/
+    cd ASDGPUN$nx
     sed -i "s/NX/$nx/g" inpsd.dat
     sed -i "s/NY/$nx/g" inpsd.dat
     sed -i "s/NZ/$nx/g" inpsd.dat
@@ -31,10 +31,10 @@ do
     cd ..
 
     # MC CPU
-    mkdir ASDCPUN$nx/ 2>/dev/null
+    mkdir MCCPUN$nx/ 2>/dev/null
     echo "NX: " $nx
-    cp Base/* ASDCPUN$nx/
-    cd ASDCPUN$nx
+    cp Base/* MCCPUN$nx/
+    cd MCCPUN$nx
     sed -i "s/NX/$nx/g" inpsd.dat
     sed -i "s/NY/$nx/g" inpsd.dat
     sed -i "s/NZ/$nx/g" inpsd.dat
@@ -45,10 +45,10 @@ do
     cd ..
 
     # MC GPU
-    mkdir ASDCPUN$nx/ 2>/dev/null
+    mkdir MCGPUN$nx/ 2>/dev/null
     echo "NX: " $nx
-    cp Base/* ASDCPUN$nx/
-    cd ASDCPUN$nx
+    cp Base/* MCGPUN$nx/
+    cd MCGPUN$nx
     sed -i "s/NX/$nx/g" inpsd.dat
     sed -i "s/NY/$nx/g" inpsd.dat
     sed -i "s/NZ/$nx/g" inpsd.dat
